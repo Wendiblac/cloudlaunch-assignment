@@ -48,7 +48,7 @@ I created an IAM user named **cloudlaunch-user** with the following rules:
 ![IAM User](./screenshots/IAM.png)
 
 
-I attached a custom JSON policy (see `policies/cloudlaunch-user-policy.json` in the repo) that defines these rules.  
+I attached a custom JSON policy (see [Custom Policy JSON Link](policies/cloudlaunch-user-policy.json) in the repo) that defines these rules.  
 I enforced password reset on first login for security.
 
 ---
@@ -166,29 +166,6 @@ The user cannot create, modify, or delete any VPC resources.
 ---
 
 ### Network Diagram
-
-CloudLaunch VPC (10.0.0.0/16)
-│
-├── Public Subnet (10.0.1.0/24)
-│     ├── Route Table: cloudlaunch-public-rt
-│     │       - 10.0.0.0/16 → local
-│     │       - 0.0.0.0/0 → cloudlaunch-igw
-│     └── Security Group: cloudlaunch-app-sg
-│             - Inbound: HTTP (80) from 10.0.0.0/16
-│
-├── Application Subnet (10.0.2.0/24)
-│     ├── Route Table: cloudlaunch-app-rt
-│     │       - 10.0.0.0/16 → local
-│     └── Security Group: cloudlaunch-app-sg
-│             - Inbound: HTTP (80) from 10.0.0.0/16
-│
-└── Database Subnet (10.0.3.0/28)
-      ├── Route Table: cloudlaunch-db-rt
-      │       - 10.0.0.0/16 → local
-      └── Security Group: cloudlaunch-db-sg
-              - Inbound: MySQL (3306) from 10.0.2.0/24
-
-Internet Gateway: cloudlaunch-igw (attached to VPC)
 
 ![VPC Resource Map](./screenshots/vpc-diagram.png)
 
