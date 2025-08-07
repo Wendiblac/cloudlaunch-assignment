@@ -118,16 +118,19 @@ I created and associated three route tables:
   - Routes:  
     - `10.0.0.0/16 → local`  
     - `0.0.0.0/0 → cloudlaunch-igw`  
+
 ![Public Subnet Route table](./screenshots/public-rt.png)
 
 - **cloudlaunch-app-rt**  
   - Associated with the Application Subnet.  
   - Route: `10.0.0.0/16 → local` (no internet route, keeping it private).
+
 ![Application Subnet Route table](./screenshots/app-rt.png)
 
 - **cloudlaunch-db-rt**  
   - Associated with the Database Subnet.  
   - Route: `10.0.0.0/16 → local` (fully private). 
+
 ![Database Subnet Route table](./screenshots/db-rt.png) 
 
 
@@ -163,7 +166,7 @@ The user cannot create, modify, or delete any VPC resources.
 ---
 
 ### Network Diagram
-```text
+
 CloudLaunch VPC (10.0.0.0/16)
 │
 ├── Public Subnet (10.0.1.0/24)
@@ -186,7 +189,7 @@ CloudLaunch VPC (10.0.0.0/16)
               - Inbound: MySQL (3306) from 10.0.2.0/24
 
 Internet Gateway: cloudlaunch-igw (attached to VPC)
-```
+
 ![VPC Resource Map](./screenshots/vpc-diagram.png)
 
 ---
