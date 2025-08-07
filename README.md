@@ -48,7 +48,7 @@ I created an IAM user named **cloudlaunch-user** with the following rules:
 ![IAM User](./screenshots/IAM.png)
 
 
-I attached a custom JSON policy (see [Custom Policy JSON Link](policies/cloudlaunch-user-policy.json) in the repo) that defines these rules.  
+I attached a custom JSON policy (see [Custom Policy JSON](policies/cloudlaunch-user-policy.json) in the repo) that defines these rules.  
 I enforced password reset on first login for security.
 
 ---
@@ -161,7 +161,7 @@ This allowed the user to use the AWS Console to view:
 
 The user cannot create, modify, or delete any VPC resources.  
 
-(see `policies/cloudlaunch-user-policy.json` in the repo)
+(see [Custom Policy JSON](policies/cloudlaunch-user-policy.json) in the repo)
 
 ---
 
