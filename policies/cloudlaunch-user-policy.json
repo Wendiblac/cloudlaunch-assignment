@@ -8,11 +8,9 @@
             "Resource": "*"
         },
         {
-            "Sid": "AllowListAllThreeBuckets",
+            "Sid": "AllowListSpecificBuckets",
             "Effect": "Allow",
-            "Action": [
-                "s3:ListBucket"
-            ],
+            "Action": "s3:ListBucket",
             "Resource": [
                 "arn:aws:s3:::cloudlaunch-assignment-site-bucket",
                 "arn:aws:s3:::cloudlaunch-assignment-private-bucket",
@@ -20,15 +18,13 @@
             ]
         },
         {
-            "Sid": "AllowGetSiteObjects",
+            "Sid": "AllowGetSiteObjectsOnly",
             "Effect": "Allow",
-            "Action": [
-                "s3:GetObject"
-            ],
+            "Action": "s3:GetObject",
             "Resource": "arn:aws:s3:::cloudlaunch-assignment-site-bucket/*"
         },
         {
-            "Sid": "AllowPrivateGetPut",
+            "Sid": "AllowPrivateBucketReadWriteOnly",
             "Effect": "Allow",
             "Action": [
                 "s3:GetObject",
@@ -37,21 +33,10 @@
             "Resource": "arn:aws:s3:::cloudlaunch-assignment-private-bucket/*"
         },
         {
-            "Sid": "AllowReadOnlyVPC",
+            "Sid": "AllowReadOnlyVpcConsoleView",
             "Effect": "Allow",
-            "Action": [
-                "ec2:DescribeVpcs",
-                "ec2:DescribeVpcAttribute",
-                "ec2:DescribeSubnets",
-                "ec2:DescribeRouteTables",
-                "ec2:DescribeInternetGateways",
-                "ec2:DescribeNatGateways",
-                "ec2:DescribeSecurityGroups",
-                "ec2:DescribeNetworkAcls",
-                "ec2:DescribeDhcpOptions"
-            ],
+            "Action": "ec2:Describe*",
             "Resource": "*"
         }
     ]
 }
-
